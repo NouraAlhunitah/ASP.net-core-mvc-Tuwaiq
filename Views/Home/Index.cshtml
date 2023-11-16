@@ -1,0 +1,120 @@
+﻿@model IEnumerable<Hotel>
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+<div class="container" dir="rtl">
+
+    <form asp-controller="Home" asp-action="CreateNewRecord" method="post">
+        <div class="row">
+            <div class="col">
+                <label for="Name" class="p-2">اسم الفندق</label>
+                <input type="text" id="Name" name="Name" class="form-control form-control-sm" />
+                <span class="text-danger" asp-validation-for="@Model.First().Name"></span>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="Address" class="p-2"> عنوان الفندق </label>
+                <input type="text" id="Address" name="Address" class="form-control form-control-sm" />
+                <span class="text-danger" asp-validation-for="@Model.First().Address"></span>
+
+
+            </div>
+            <div class="col-sm-6">
+                <label for="City" class="p-2">  المدينة</label>
+                <input type="text" id="City" name="City" class="form-control form-control-sm"  />
+                <span class="text-danger" asp-validation-for="@Model.First().City"></span>
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="Email" class="p-2">البريد الإليكتروني </label>
+                <input type="email" id="Email" name="Email" class="form-control form-control-sm"  />
+                <span class="text-danger" asp-validation-for="@Model.First().Email"></span>
+
+
+            </div>
+            <div class="col-sm-6">
+                <label for="Phone" class="p-2"> رقم الهاتف </label>
+                <input type="tel" id="Phone" name="Phone" class="form-control form-control-sm"  />
+                <span class="text-danger" asp-validation-for="@Model.First().Phone"></span>
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="Images" class="p-2"> الصورة </label>
+                <input type="text" id="Images" name="Images" class="form-control form-control-sm"  />
+                <span class="text-danger" asp-validation-for="@Model.First().Images"></span>
+
+            </div>
+
+        </div>
+
+        <div class="row mt-3">
+            <div class="col text-center">
+
+                <button class="btn btn-success" type="submit">حفظ</button>
+
+
+            </div>
+
+          
+    </form>
+    
+     <form asp-controller="Home" asp-action="Index" method="post">
+        
+        <div class="col-sm-6">
+            <label for="City" class="p-2"></label>
+            <input type="text" id="City" name="City" class="form-control form-control-sm" required />
+
+
+        </div>
+        <div class="row mt-3">
+            <div class="col text-center">
+
+                <button class="btn btn-success" type="submit">بحث</button>
+
+            </div>
+    </form>
+
+    <table class="table table-bordered mt-5">
+        <thead>
+            <tr class="text-center">
+                <th>رقم الفندق</th>
+
+                <th>اسم الفندق</th>
+                <th>عنوان الفندق</th>
+                <th>المدينة</th>
+                <th>رقم العاتف</th>
+                <th> البريد الإليكتروني</th>
+                <th colspan="2">إجراء </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="text-center">
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Address</td>
+                    <td>@item.City</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Email</td>
+                    <td><a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash text-danger"></i></a></td>
+                    <td><a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit text-success"></i></a></td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+</div>

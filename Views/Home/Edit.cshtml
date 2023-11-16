@@ -1,0 +1,68 @@
+﻿@model Hotel
+@{
+}
+<div class=" container" dir="rtl">
+
+    <div class="alert alert-success">تعديل بيانات الفندق</div>
+
+    <form asp-controller="Home" asp-action="Update" method="post">
+        <input type="hidden" asp-for="@Model.Id" />
+        <div class="row">
+            <div class="col">
+                <label for="Name" class="p-2">اسم الفندق</label>
+                <input  id="Name" name="Name" class="form-control form-control-sm" asp-for="@Model.Name"/>
+                <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+    </div>
+
+    <div class=" row">
+                <div class="col-sm-6">
+                    <label for="Address" class="p-2"> عنوان الفندق </label>
+                <input type="text" id="Address" name="Address" class="form-control form-control-sm" asp-for="@Model.Address" />
+                <span class="text-danger" asp-validation-for="Address"></span>
+
+        </div>
+
+        <div class=" col-sm-6">
+                    <label for="City" class="p-2">  المدينة</label>
+                <input type="text" id="City" name="City" class="form-control form-control-sm" asp-for="@Model.City" />
+                <span class="text-danger" asp-validation-for="City"></span>
+
+        </div>
+    </div>
+
+
+    <div class=" row">
+                    <div class="col-sm-6">
+                        <label for="Email" class="p-2">البريد الإليكتروني </label>
+                <input type="text" id="Email" name="Email" class="form-control form-control-sm" asp-for="@Model.Email" />
+                <span class="text-danger" asp-validation-for="Email"></span>
+
+        </div>
+
+        <div class=" col-sm-6">
+                        <label for="Phone" class="p-2"> رقم الهاتف </label>
+                        <input type="text" id="Phone" name="Phone" class="form-control form-control-sm" asp-for="@Model.Phone" />
+                <span class="text-danger" asp-validation-for="Phone"></span>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="Images" class="p-2"> الصورة </label>
+                <input type="text" id="Images" name="Images" class="form-control form-control-sm" asp-for="@Model.Images" />
+                <span class="text-danger" asp-validation-for="Images"></span>
+
+        </div>
+    </div>
+
+    <div class=" row mt-3">
+                        <div class="col text-center">
+                            <button class="btn btn-success" type="submit">حفظ</button>
+                        </div>
+                    </div>
+
+    </form>
+</div>
+<!--Example Tue W3 End-->
